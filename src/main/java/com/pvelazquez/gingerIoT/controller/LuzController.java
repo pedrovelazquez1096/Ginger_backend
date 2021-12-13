@@ -44,42 +44,42 @@ public class LuzController {
     }
 
     // /api/luz/nombre?nombre=hola
-    @GetMapping("/nombre")
+    @GetMapping("/nombre/")
     public Optional<ArrayList<Luz>> getLucesByNombre(@RequestParam("nombre")String nombre){
         return luzService.findLuzByNombre(nombre);
     }
 
-    @GetMapping("/description")
+    @GetMapping("/description/")
     public Optional<ArrayList<Luz>> getLucesByDescripcion(@RequestParam("descripcion")String descripcion){
         return luzService.findLuzByDescripcion(descripcion);
     }
 
-    @GetMapping("/tipoluz")
+    @GetMapping("/tipoluz/")
     public Optional<ArrayList<Luz>> getLuzByTipoLuz(@RequestParam("tipo")String tipo){
         return luzService.findLuzByTipoLuz(tipo);
     }
 
-    @GetMapping("/ubicacion")
+    @GetMapping("/ubicacion/")
     public Optional<ArrayList<Luz>> getLuzByUbicacion(@RequestParam("ubicacion")String ubi){
         return luzService.findLuzByUbicacion(ubi);
     }
 
-    @GetMapping("/unidades")
+    @GetMapping("/unidades/")
     public Optional<ArrayList<Luz>> getLuzByUnidades(@RequestParam("unidades")String unidades){
         return luzService.findLuzByUnidades(unidades);
     }
 
-    @GetMapping("/nombre_descripcion")
+    @GetMapping("/nombre_descripcion/")
     public Optional<ArrayList<Luz>> getLuzByNombreAndDescripcion(@RequestParam("nombre")String nombre, @RequestParam("descripcion")String descripcion){
         return luzService.findLuzByNombreAndDescripcion(nombre, descripcion);
     }
 
-    @GetMapping("/tipoluz_ubicacion")
+    @GetMapping("/tipoluz_ubicacion/")
     public Optional<ArrayList<Luz>> getLuzByTipoLuzAndUbicacion(@RequestParam("tipo")String tipo,@RequestParam("ubicacion")String ubi){
         return luzService.findLuzByTipoLuzAndUbicacion(tipo, ubi);
     }
 
-    @GetMapping("/nombre_descripcionlike")
+    @GetMapping("/nombre_descripcionlike/")
     public Optional<ArrayList<Luz>> getLuzByNombreAndDescripcionLike(@RequestParam("nombre")String nombre, @RequestParam("descripcion")String descripcion){
         return luzService.findLuzByNombreAndDescripcionLike(nombre, descripcion);
     }

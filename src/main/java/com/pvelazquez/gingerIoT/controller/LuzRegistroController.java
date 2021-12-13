@@ -50,27 +50,27 @@ public class LuzRegistroController {
         }
     }
 
-    @GetMapping("/timestamp_aplicado")
+    @GetMapping("/timestamp_aplicado/")
     public Optional<ArrayList<LuzRegistro>> getLuzRegistroByTimestampAndAplicado(@RequestParam("timestamp")Timestamp timestamp, @RequestParam("aplicado")Boolean aplicado){
         return luzRegistroService.getLuzRegistroByTimestampAndAplicado(timestamp,aplicado);
     }
 
-    @GetMapping("/timestamp")
+    @GetMapping("/timestamp/")
     public Optional<ArrayList<LuzRegistro>> getLuzRegistroByTimestamp(@RequestParam("timestamp")Timestamp timestamp){
         return luzRegistroService.getLuzRegistroByTimestamp(timestamp);
     }
 
-    @GetMapping("/rangotimestamp")
+    @GetMapping("/rangotimestamp/")
     public Optional<ArrayList<LuzRegistro>> getLuzRegistroByTimestampBetween(@RequestParam("inicio")Timestamp start,@RequestParam("final")Timestamp end){
         return luzRegistroService.getLuzRegistroByTimestampBetween(start, end);
     }
 
-    @GetMapping("/valor")
+    @GetMapping("/valor/")
     public Optional<ArrayList<LuzRegistro>> getLuzRegistroByValor(@RequestParam("valor")String valor){
         return  luzRegistroService.getLuzRegistroByValor(valor);
     }
 
-    @GetMapping("/idluz")
+    @GetMapping("/idluz/")
     public Optional<ArrayList<LuzRegistro>> findLuzByIdLuz(@RequestParam("id")Long id){
         return luzRegistroService.getLuzByIdLuz(id);
     }

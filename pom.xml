@@ -11,7 +11,7 @@
 	<groupId>com.pvelazquez</groupId>
 	<artifactId>gingerIoT</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 	<name>gingerIoT</name>
 	<description>Api REST for IoT</description>
 	<properties>

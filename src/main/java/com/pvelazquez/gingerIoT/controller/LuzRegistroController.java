@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 
 import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Optional;
 
@@ -20,6 +21,8 @@ public class LuzRegistroController {
     @Autowired
     LuzRegistroService luzRegistroService;
 
+    private static final SimpleDateFormat sdf3 = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+
     @GetMapping("/registros")
     public ArrayList<LuzRegistro> getAllLuzRegistro(){
         return luzRegistroService.getAllLuzRegistro();
@@ -31,8 +34,11 @@ public class LuzRegistroController {
     }
 
     @PostMapping("/")
-    public LuzRegistro createLuzRegistro(@Validated @RequestBody LuzRegistro luzRegistro){
-        return luzRegistroService.createLuzRegistro(luzRegistro);
+    public void createLuzRegistro(@Validated @RequestBody LuzRegistro luzRegistro){
+        Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+        String time = sdf3.format(timestamp);
+        luzRegistro.setTimeStamp(time);
+        luzRegistroService.createLuzRegistro(luzRegistro);
     }
 
     @PutMapping("/{id}")

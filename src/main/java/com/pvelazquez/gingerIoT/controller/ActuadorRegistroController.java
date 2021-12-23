@@ -7,6 +7,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Optional;
 
@@ -19,6 +20,8 @@ public class ActuadorRegistroController {
     @Autowired
     ActuadorRegistroService actuadorRegistroService;
 
+    private static final SimpleDateFormat sdf3 = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+
     @GetMapping("/registros")
     public ArrayList<ActuadorRegistro> getAllActuadorRegistro(){
         return actuadorRegistroService.getAllActuadorRegistro();
@@ -30,8 +33,11 @@ public class ActuadorRegistroController {
     }
 
     @PostMapping("/")
-    public ActuadorRegistro addActuadorRegistro(@Validated @RequestBody ActuadorRegistro actuadorRegistro){
-        return actuadorRegistroService.createActuadorRegistro(actuadorRegistro);
+    public void addActuadorRegistro(@Validated @RequestBody ActuadorRegistro actuadorRegistro){
+        Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+        String time = sdf3.format(timestamp);
+        actuadorRegistro.setTimeStamp(time);
+        actuadorRegistroService.createActuadorRegistro(actuadorRegistro);
     }
 
     @PutMapping("/{id}")

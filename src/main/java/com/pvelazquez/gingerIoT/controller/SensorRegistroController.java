@@ -2,12 +2,12 @@ package com.pvelazquez.gingerIoT.controller;
 
 import com.pvelazquez.gingerIoT.model.SensorRegistro;
 import com.pvelazquez.gingerIoT.service.SensorRegistroService;
-import com.pvelazquez.gingerIoT.service.SensorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Optional;
 
@@ -20,6 +20,8 @@ public class SensorRegistroController {
     @Autowired
     SensorRegistroService sensorRegistroService;
 
+    private static final SimpleDateFormat sdf3 = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+
     @GetMapping("/registros")
     public ArrayList<SensorRegistro> getAllSensorRegistro(){
         return sensorRegistroService.getAllSensorRegistro();
@@ -31,8 +33,11 @@ public class SensorRegistroController {
     }
 
     @PostMapping("/")
-    public SensorRegistro addSensorRegistro(@Validated @RequestBody SensorRegistro sensorRegistro){
-        return sensorRegistroService.createSensorRegistro(sensorRegistro);
+    public void addSensorRegistro(@Validated @RequestBody SensorRegistro sensorRegistro){
+        Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+        String time = sdf3.format(timestamp);
+        sensorRegistro.setTimeStamp(time);
+        sensorRegistroService.createSensorRegistro(sensorRegistro);
     }
 
     @PutMapping("/{id}")

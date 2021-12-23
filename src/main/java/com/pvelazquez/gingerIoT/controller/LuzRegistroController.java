@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-import java.sql.ClientInfoStatus;
+
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Optional;
@@ -20,7 +20,7 @@ public class LuzRegistroController {
     @Autowired
     LuzRegistroService luzRegistroService;
 
-    @GetMapping("/")
+    @GetMapping("/registros")
     public ArrayList<LuzRegistro> getAllLuzRegistro(){
         return luzRegistroService.getAllLuzRegistro();
     }

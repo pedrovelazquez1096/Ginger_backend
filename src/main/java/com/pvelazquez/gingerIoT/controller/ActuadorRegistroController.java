@@ -19,7 +19,7 @@ public class ActuadorRegistroController {
     @Autowired
     ActuadorRegistroService actuadorRegistroService;
 
-    @GetMapping("/")
+    @GetMapping("/registros")
     public ArrayList<ActuadorRegistro> getAllActuadorRegistro(){
         return actuadorRegistroService.getAllActuadorRegistro();
     }

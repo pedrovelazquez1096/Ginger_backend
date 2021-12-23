@@ -20,7 +20,7 @@ public class SensorRegistroController {
     @Autowired
     SensorRegistroService sensorRegistroService;
 
-    @GetMapping("/")
+    @GetMapping("/registros")
     public ArrayList<SensorRegistro> getAllSensorRegistro(){
         return sensorRegistroService.getAllSensorRegistro();
     }

@@ -18,7 +18,7 @@ public class LuzController {
     @Autowired
     LuzService luzService;
 
-    @GetMapping("/")
+    @GetMapping("/luces")
     public ArrayList<Luz> getAllLuces(){
         return luzService.getAllLuz();
     }

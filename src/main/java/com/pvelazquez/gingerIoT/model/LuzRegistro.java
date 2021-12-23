@@ -16,7 +16,7 @@ public class LuzRegistro {
     @Column(nullable = false)
     private int valor;
     @Column(nullable = false)
-    private Timestamp timeStamp;
+    private String timeStamp;
     @Column(nullable = false)
     private boolean aplicado;
 
@@ -44,11 +44,11 @@ public class LuzRegistro {
         this.valor = valor;
     }
 
-    public Timestamp getTimeStamp() {
+    public String getTimeStamp() {
         return timeStamp;
     }
 
-    public void setTimeStamp(Timestamp timeStamp) {
+    public void setTimeStamp(String timeStamp) {
         this.timeStamp = timeStamp;
     }
 

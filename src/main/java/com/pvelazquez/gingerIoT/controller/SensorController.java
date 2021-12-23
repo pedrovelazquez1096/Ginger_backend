@@ -19,7 +19,7 @@ public class SensorController {
     @Autowired
     SensorService sensorService;
 
-    @GetMapping("/")
+    @GetMapping("/sensores")
     public ArrayList<Sensor> getAllSensor(){
         return sensorService.getAllSensor();
     }

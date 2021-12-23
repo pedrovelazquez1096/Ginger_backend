@@ -18,7 +18,7 @@ public class ActuadorController {
     @Autowired
     ActuadorService actuadorService;
 
-    @GetMapping("/")
+    @GetMapping("/acturadores")
     public ArrayList<Actuador> getAllActuador(){
         return actuadorService.getAllActuador();
     }
@@ -28,7 +28,7 @@ public class ActuadorController {
         return actuadorService.getActuador(id);
     }
 
-    @PostMapping("/")
+    @PostMapping()
     public Actuador addActuador(@Validated @RequestBody Actuador actuador){
         return actuadorService.createActuador(actuador);
     }

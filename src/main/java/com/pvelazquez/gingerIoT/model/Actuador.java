@@ -11,16 +11,20 @@ public class Actuador {
     @Column(unique = true,nullable = false)
     private Long id;
 
-    @Column(nullable = false)
+    @Column
     private String nombre;
     @Column
     private String descripcion;
-    @Column(nullable = false)
+    @Column
     private String tipoActuador;
     @Column
     private String ubicacion;
-    @Column(nullable = false)
+    @Column
     private String unidades;
+    @Column
+    private String estado;
+    @Column
+    private String valor;
 
     public Long getId() {
         return id;
@@ -68,5 +72,21 @@ public class Actuador {
 
     public void setUnidades(String unidades) {
         this.unidades = unidades;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+    public String getValor() {
+        return valor;
+    }
+
+    public void setValor(String valor) {
+        this.valor = valor;
     }
 }

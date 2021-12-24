@@ -15,4 +15,5 @@ public interface LuzRegistroRepository extends CrudRepository<LuzRegistro, Long>
     public abstract Optional<ArrayList<LuzRegistro>> findByTimeStampBetween(Timestamp a, Timestamp b);
     public abstract Optional<ArrayList<LuzRegistro>> findByValor(String valor);
     public abstract Optional<ArrayList<LuzRegistro>> findByIdLuz(Long id);
+    public abstract Optional<ArrayList<LuzRegistro>> findByIdLuzOrderById(Long idLuz);
 }

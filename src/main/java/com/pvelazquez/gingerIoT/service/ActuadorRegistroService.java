@@ -58,4 +58,8 @@ public class ActuadorRegistroService {
     public Optional<ArrayList<ActuadorRegistro>> findActuadorRegistroByIdActuador(Long id){
         return actuadorRegistroRepository.findByIdActuador(id);
     }
+
+    public Optional<ArrayList<ActuadorRegistro>> findActuadorRegistroByIdActuadorOrderById(Long idAcuador){
+        return actuadorRegistroRepository.findByIdActuadorOrderById(idAcuador);
+    }
 }

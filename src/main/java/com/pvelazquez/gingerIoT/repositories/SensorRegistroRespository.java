@@ -16,4 +16,5 @@ public interface SensorRegistroRespository extends CrudRepository<SensorRegistro
     public abstract Optional<ArrayList<SensorRegistro>> findByTimeStampBetween(Timestamp a, Timestamp b);
     public abstract Optional<ArrayList<SensorRegistro>> findByValor(Float valor);
     public abstract Optional<ArrayList<SensorRegistro>> findByIdSensor(Long id);
+    public abstract Optional<ArrayList<SensorRegistro>> findByIdSensorOrderById(Long idSensor);
 }

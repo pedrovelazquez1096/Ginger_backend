@@ -1,5 +1,6 @@
 package com.pvelazquez.gingerIoT.controller;
 
+import com.pvelazquez.gingerIoT.model.Actuador;
 import com.pvelazquez.gingerIoT.model.ActuadorRegistro;
 import com.pvelazquez.gingerIoT.service.ActuadorRegistroService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -74,7 +75,13 @@ public class ActuadorRegistroController {
     }
 
     @GetMapping("/idactuador/")
-    public Optional<ArrayList<ActuadorRegistro>> findActuadorRegistroByIdActuador(@RequestParam("idactuador")Long id){
-        return actuadorRegistroService.findActuadorRegistroByIdActuador(id);
+    public Optional<ActuadorRegistro> findActuadorRegistroByIdActuadorOrderById(@RequestParam("idactuador")Long id){
+        ArrayList<ActuadorRegistro> actuadorRegistroList = actuadorRegistroService.findActuadorRegistroByIdActuadorOrderById(id).get();
+        Optional<ActuadorRegistro> actuadorRegistro = null;
+        if (actuadorRegistroList.size()>0)
+            actuadorRegistro = Optional.ofNullable(actuadorRegistroList.get(actuadorRegistroList.size() - 1));
+        
+        return actuadorRegistro;
     }
+
 }

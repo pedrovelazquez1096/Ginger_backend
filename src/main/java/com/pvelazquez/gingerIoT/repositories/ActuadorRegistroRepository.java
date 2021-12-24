@@ -2,7 +2,6 @@ package com.pvelazquez.gingerIoT.repositories;
 
 import com.pvelazquez.gingerIoT.model.ActuadorRegistro;
 
-
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
@@ -17,4 +16,6 @@ public interface ActuadorRegistroRepository extends CrudRepository<ActuadorRegis
     public abstract Optional<ArrayList<ActuadorRegistro>> findByTimeStampAndAplicado(Timestamp timestamp, Boolean aplicado);
     public abstract Optional<ArrayList<ActuadorRegistro>> findByValor(Boolean valor);
     public abstract Optional<ArrayList<ActuadorRegistro>> findByIdActuador(Long id);
+    public abstract Optional<ArrayList<ActuadorRegistro>> findByIdActuadorOrderById(Long idActuador);
+
 }
